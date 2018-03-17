@@ -9,6 +9,9 @@ create_directories() {
 
     declare -a DIRECTORIES=(
         "$HOME/Downloads/torrents"
+        "$HOME/gitRepo/_temp"
+        "$HOME/gitRepo/_salween"
+        "$HOME/gitRepo/_hobbies"
     )
 
     for i in "${DIRECTORIES[@]}"; do

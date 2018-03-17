@@ -33,7 +33,8 @@ $pathConfig
 export PATH
 "
 
-    newShellPath="$brewPrefix/bin/bash" \
+    # newShellPath="$brewPrefix/bin/bash" \
+    newShellPath="$brewPrefix/bin/zsh" \
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -60,7 +61,8 @@ export PATH
     # (macOS uses by default an older version of `Bash`).
 
     chsh -s "$newShellPath" &> /dev/null
-    print_result $? "Bash (use latest version)"
+    # print_result $? "Bash (use latest version)"
+    print_result $? "Zsh (use latest version)"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -80,13 +82,17 @@ export PATH
 
 main() {
 
-    print_in_purple "\n   Bash\n\n"
+    print_in_purple "\n   Zsh\n\n"
 
-    brew_install "Bash" "bash" \
+    # brew_install "Bash" "bash" \
+    brew_install "Zsh" "zsh" \
         && change_default_bash
 
-    brew_install "Bash Completion 2" "bash-completion@2"
+    # brew_install "Bash Completion 2" "bash-completion@2"
+    brew_install "Zsh Completions" "zsh-completions"
 
+    # install oh-my-zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
 main
