@@ -1,0 +1,99 @@
+#!/bin/bash
+
+# DESCRIPTION:
+#
+#   Alias for youtube-dl including some frequently use options
+#
+# USAGE:
+#
+#   ytdl [-sch] YOUTUBE_VIDEO_URL
+#   -s: download audio only
+#   -c: download to current dir ($PWD)
+#   -h: display help and exit
+#
+# BASH FUNCTION GUIDE:
+#
+#   http://mywiki.wooledge.org/BashFAQ/035
+#
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+show_help() {
+cat << EOF
+Usage: ${0##*/} [-sch] YOUTUBE_VIDEO_URL...
+
+    -h          display help and exit
+    -s          download audio only.
+    -c          download to current dir ($PWD)
+EOF
+}
+
+# init variables:
+format="best[ext=mp4]"
+target_dir="$HOME/Music/youtube-dl/videos"
+
+OPTIND=1
+# Resetting OPTIND is necessary if getopts was used previously in the script.
+# It is a good idea to make OPTIND local if you process options in a function.
+
+while getopts sch opt; do
+    case $opt in
+        s)
+            format="bestaudio[ext=m4a]"
+            target_dir="$HOME/Music/youtube-dl"
+            ;;
+        c)
+            target_dir="$PWD"
+            ;;
+        h)
+            show_help
+            exit 0
+            ;;
+        *)
+            echo "Invalid option: -$OPTARG" >&2
+            show_help >&2
+            exit 1
+            ;;
+    esac
+done
+shift "$((OPTIND-1))"   # Discard the options and sentinel --
+
+# # Everything that's left in "$@" is a non-option.  In this case, a YOUTUBE_URL.
+# printf 'verbose=<%d>\noutput_file=<%s>\nLeftovers:\n' "$verbose" "$output_file"
+# printf '<%s>\n' "$@"
+
+# check if target dir exist.
+chk-ytdl-dir() {
+  if [ ! -d ~/Music/youtube-dl ]; then
+    mkdir -p ~/Music/youtube-dl
+    echo "created ~/Music/youtube-dl"
+    mkdir -p ~/Music/youtube-dl/videos
+    echo "created ~/Music/youtube-dl/videos"
+  fi
+}
+
+shorten_ytdl() {
+  # check target dir first
+  chk-ytdl-dir
+
+  # download
+  youtube-dl -o $target_dir/"%(title)s.%(ext)s" -f $format "$1" || youtube-dl -o $target_dir/"%(title)s.%(ext)s" -f $format --no-check-certificate "$@"
+}
+
+main() {
+  # Check if youtube-dl is installed.
+
+  if ! command -v "youtube-dl" $> /dev/null; then
+      printf "Please install youtube-dl!"
+      exit;
+  fi
+
+  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+  while [ $# -ne 0 ]; do
+      shorten_ytdl "$1"
+      shift
+  done
+}
+
+main "$@"
+
