@@ -49,7 +49,7 @@ alias o="xdg-open"
 
 # Update applications and CLTs.
 
-alias u="sudo apt-get update \
+alias update-all="sudo apt-get update \
             && sudo apt-get upgrade \
             && npm install -g npm \
             && npm upgrade -g"

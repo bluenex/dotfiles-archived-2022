@@ -21,9 +21,9 @@ show_help() {
 cat << EOF
 Usage: ${0##*/} [-sch] YOUTUBE_VIDEO_URL...
 
-    -h          display help and exit
-    -s          download audio only.
-    -c          download to current dir ($PWD)
+    -h    display help and exit
+    -s    download audio only.
+    -c    download to current dir ($PWD)
 EOF
 }
 
@@ -40,59 +40,55 @@ while getopts sch opt; do
         s)
             format="bestaudio[ext=m4a]"
             target_dir="$HOME/Music/youtube-dl"
-            ;;
+        ;;
         c)
             target_dir="$PWD"
-            ;;
+        ;;
         h)
             show_help
             exit 0
-            ;;
+        ;;
         *)
             echo "Invalid option: -$OPTARG" >&2
             show_help >&2
             exit 1
-            ;;
+        ;;
     esac
 done
 shift "$((OPTIND-1))"   # Discard the options and sentinel --
 
-# # Everything that's left in "$@" is a non-option.  In this case, a YOUTUBE_URL.
-# printf 'verbose=<%d>\noutput_file=<%s>\nLeftovers:\n' "$verbose" "$output_file"
-# printf '<%s>\n' "$@"
-
 # check if target dir exist.
 chk-ytdl-dir() {
-  if [ ! -d ~/Music/youtube-dl ]; then
-    mkdir -p ~/Music/youtube-dl
-    echo "created ~/Music/youtube-dl"
-    mkdir -p ~/Music/youtube-dl/videos
-    echo "created ~/Music/youtube-dl/videos"
-  fi
+    if [ ! -d ~/Music/youtube-dl ]; then
+        mkdir -p ~/Music/youtube-dl
+        echo "created ~/Music/youtube-dl"
+        mkdir -p ~/Music/youtube-dl/videos
+        echo "created ~/Music/youtube-dl/videos"
+    fi
 }
 
 shorten_ytdl() {
-  # check target dir first
-  chk-ytdl-dir
+    # check target dir first
+    chk-ytdl-dir
 
-  # download
-  youtube-dl -o $target_dir/"%(title)s.%(ext)s" -f $format "$1" || youtube-dl -o $target_dir/"%(title)s.%(ext)s" -f $format --no-check-certificate "$@"
+    # download
+    youtube-dl -o $target_dir/"%(title)s.%(ext)s" -f $format "$1" || youtube-dl -o $target_dir/"%(title)s.%(ext)s" -f $format --no-check-certificate "$@"
 }
 
 main() {
-  # Check if youtube-dl is installed.
+    # Check if youtube-dl is installed.
 
-  if ! command -v "youtube-dl" $> /dev/null; then
-      printf "Please install youtube-dl!"
-      exit;
-  fi
+    if ! command -v "youtube-dl" $> /dev/null; then
+        printf "Please install youtube-dl!"
+        exit;
+    fi
 
-  # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-  while [ $# -ne 0 ]; do
-      shorten_ytdl "$1"
-      shift
-  done
+    while [ $# -ne 0 ]; do
+        shorten_ytdl "$1"
+        shift
+    done
 }
 
 main "$@"
