@@ -22,8 +22,8 @@ create_symlinks() {
         "shell/bash_prompt"
         # "shell/bashrc"
         "shell/zshrc"
-        "shell/curlrc"
-        "shell/inputrc"
+        # "shell/curlrc"
+        # "shell/inputrc"
 
         "git/gitattributes"
         "git/gitconfig"
@@ -31,8 +31,8 @@ create_symlinks() {
 
         "tmux/tmux.conf"
 
-        "vim/vim"
-        "vim/vimrc"
+        # "vim/vim"
+        # "vim/vimrc"
 
     )
 
