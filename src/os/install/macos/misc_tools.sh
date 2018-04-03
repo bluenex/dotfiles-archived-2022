@@ -9,7 +9,14 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 print_in_purple "\n   Miscellaneous Tools\n\n"
 
 brew_install "ShellCheck" "shellcheck"
+
+# ms stuffs
 brew_install "Visual Studio Code" "visual-studio-code" "caskroom/cask" "cask"
+brew_install ".NET SDK" "dotnet-sdk" "caskroom/cask" "cask"
+
+# java 8 for android sdk
+brew_install "Java 8" "java8" "caskroom/versions" "cask"
+
 # android sdk
 brew_install "Android SDK" "android-sdk" "caskroom/cask" "cask"
 brew_install "Android NDK" "android-ndk" "caskroom/cask" "cask"

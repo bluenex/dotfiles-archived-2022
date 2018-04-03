@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Run sdkmanager to install necessary sdk for android dev
+
+sdk_setup_first_time() {
+
+  echo "Installing 'platforms;android-27'..."
+  sdkmanager "platforms;android-27"
+
+  echo "Installing 'build-tools;27.0.3'..."
+  sdkmanager "build-tools;27.0.3"
+
+  echo "Installing 'extras;android;m2repository'..."
+  sdkmanager "extras;android;m2repository"
+
+  echo "Installing 'extras;google;m2repository'..."
+  sdkmanager "extras;google;m2repository"
+
+  echo "Installing 'sources;android-27'..."
+  sdkmanager "sources;android-27"
+
+}
