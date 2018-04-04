@@ -22,3 +22,19 @@ sdk_setup_first_time() {
   sdkmanager "sources;android-27"
 
 }
+
+switch_java_home() {
+
+  if echo ${JAVA_HOME} | grep '1.8' > /dev/null;
+  then
+    # if 1.8 is being exported
+    export JAVA_HOME=$(/usr/libexec/java_home)
+    echo "JAVA_HOME is changed to '$(/usr/libexec/java_home)'"
+  else
+    # if 10 is being exported
+    export JAVA_HOME=$(/usr/libexec/java_home -v1.8)
+    echo "JAVA_HOME is changed to '$(/usr/libexec/java_home -v1.8)'"
+  fi
+
+
+}
