@@ -38,3 +38,21 @@ switch_java_home() {
 
 
 }
+
+add_to_path_start() {
+
+  case ":$PATH:" in
+    *":$1:"*) :;; # already there
+    *) PATH="$1:$PATH";; # or PATH="$PATH:$1"
+  esac
+
+}
+
+add_to_path_end() {
+
+  case ":$PATH:" in
+    *":$1:"*) :;; # already there
+    *) PATH="$PATH:$1";; # or PATH="$PATH:$1"
+  esac
+
+}
