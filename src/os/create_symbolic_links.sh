@@ -19,7 +19,7 @@ create_symlinks() {
         # "shell/bash_options"
         # "shell/bash_profile"
         "shell/zsh_profile"
-        "shell/bash_prompt"
+        # "shell/bash_prompt"
         # "shell/bashrc"
         "shell/zshrc"
         # "shell/curlrc"
