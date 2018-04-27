@@ -33,9 +33,11 @@ source_zsh_files() {
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # for i in ${!FILES_TO_SOURCE[*]}; do
-    for i in ${(@)FILES_TO_SOURCE}; do
+    for i in ${FILES_TO_SOURCE[@]}; do
 
         file="$HOME/.$i"
+
+        # echo "sourcing $file..."
 
         [ -r "$file" ] \
             && . "$file"

@@ -10,7 +10,7 @@ update
 upgrade
 
 ./build-essentials.sh
-./../nvm.sh
+# ./../nvm.sh
 
 ./browsers.sh
 ./compression_tools.sh
