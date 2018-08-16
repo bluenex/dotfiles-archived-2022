@@ -115,6 +115,7 @@
     autocrlf = input
     editor = vim
     excludesfile = ~/.gitignore
+    ignorecase = true
 
 [diff]
 
@@ -147,6 +148,7 @@
     # annotated tags when pushing branches out.
 
     followTags = true
+	  default = current
 
 [user]
 
@@ -154,8 +156,8 @@
     # https://github.com/git/git/blob/90f7b16b3adc78d4bbabbd426fb69aa78c714f71/Documentation/config.txt#L2847-L2855
 
     useConfigOnly = true
-	email = tul@salweensolutions.com
-	name = tulakann
+    email = tulakan.r@gmail.com
+    name = tulakann
 
 [include]
 
@@ -168,7 +170,7 @@
 
     # path = ~/.gitconfig.local
 [filter "lfs"]
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
