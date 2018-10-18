@@ -58,5 +58,14 @@ add_to_path_end() {
 }
 
 getBranchName() {
-  "pbpaste" | sed -nE 's|.*/c/(.*)">.*</a>.*|\1|p' | pbcopy;
+  local bName
+
+  bName=$("pbpaste" | sed -nE 's|.*/c/(.*)">.*</a>.*|\1|p')
+  echo "$bName" | pbcopy;
+
+  echo "$bName"
+}
+
+findBranch() {
+  git branch | grep "$1"
 }
