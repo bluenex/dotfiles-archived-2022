@@ -1,4 +1,12 @@
-# [Cătălin](https://github.com/alrra)’s dotfiles [![Build Status](https://travis-ci.org/alrra/dotfiles.svg?branch=master)](https://travis-ci.org/alrra/dotfiles)
+# [bluenex](https://github.com/bluenex/dotfiles)'s dotfiles
+
+This is a complete for from [Cătălin](https://github.com/alrra)’s dotfiles, so I will reserve his readme in place and add what I have changed on top of that. Originally, these dotfiles are tweaked for bash user which is actually really cool. However, I found myself as a zsh user from the very beginning of my cli path so I don't wanna turn back to bash just because someone else's dotfiles look so charming.
+
+Thanks to [@Cătălin](https://github.com/alrra), his dotfiles is so structure I almost readily adopt it. What I did is just to make it usable for zsh. Actually I feel guilty a bit that I didn't make it as structure as it was. More detail on what is changed will be described including how to use some scripts separately without running the main script.
+
+----
+
+# Original README
 
 These are the base dotfiles that I start with when I set up a
 new environment. For more specific local needs I use the `.local`
