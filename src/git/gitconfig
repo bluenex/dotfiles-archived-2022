@@ -156,8 +156,6 @@
     # https://github.com/git/git/blob/90f7b16b3adc78d4bbabbd426fb69aa78c714f71/Documentation/config.txt#L2847-L2855
 
     useConfigOnly = true
-    email = tul@salweensolutions.com
-    name = tulakann
 
 [include]
 
@@ -167,8 +165,8 @@
     # [!] The following needs to remain at the end of this file in
     #     order to allow any of the above configs to be overwritten
     #     by the local ones
+    path = ~/.gitconfig.local
 
-    # path = ~/.gitconfig.local
 [filter "lfs"]
     required = true
     clean = git-lfs clean -- %f
