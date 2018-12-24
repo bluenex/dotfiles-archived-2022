@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 change_default_bash() {
 
-    declare -r LOCAL_SHELL_CONFIG_FILE="$HOME/.bash.local"
+    declare -r LOCAL_SHELL_CONFIG_FILE="$HOME/.zsh.local"
 
     local configs=""
     local pathConfig=""
@@ -33,7 +33,8 @@ $pathConfig
 export PATH
 "
 
-    newShellPath="$brewPrefix/bin/bash" \
+    # newShellPath="$brewPrefix/bin/bash" \
+    newShellPath="$brewPrefix/bin/zsh" \
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -60,7 +61,8 @@ export PATH
     # (macOS uses by default an older version of `Bash`).
 
     chsh -s "$newShellPath" &> /dev/null
-    print_result $? "Bash (use latest version)"
+    # print_result $? "Bash (use latest version)"
+    print_result $? "Zsh (use latest version)"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -80,12 +82,21 @@ export PATH
 
 main() {
 
-    print_in_purple "\n   Bash\n\n"
+    print_in_purple "\n   Zsh\n\n"
 
-    brew_install "Bash" "bash" \
-        && change_default_bash
+    # brew_install "Bash" "bash" \
+    brew_install "Zsh" "zsh"
 
-    brew_install "Bash Completion 2" "bash-completion@2"
+    # install oh-my-zsh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+    # change default zsh
+    # this adds .zsh.local
+    change_default_bash
+
+    # brew_install "Bash Completion 2" "bash-completion@2"
+    brew_install "Zsh Completions" "zsh-completions"
+
 
 }
 

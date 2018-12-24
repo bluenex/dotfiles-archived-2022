@@ -24,9 +24,12 @@ brew_install ".NET SDK" "dotnet-sdk" "caskroom/cask" "cask"
 brew_install "Java 8" "java8" "caskroom/versions" "cask"
 
 # android sdk
-brew_install "Android SDK" "android-sdk" "caskroom/cask" "cask"
-brew_install "Android NDK" "android-ndk" "caskroom/cask" "cask"
-brew_install "Android Platform Tools" "android-platform-tools" "caskroom/cask" "cask"
+# brew_install "Android SDK" "android-sdk" "caskroom/cask" "cask"
+# brew_install "Android NDK" "android-ndk" "caskroom/cask" "cask"
+# brew_install "Android Platform Tools" "android-platform-tools" "caskroom/cask" "cask"
+
+# use android studio instead
+brew_install "Android Studio" "android-studio" "caskroom/cask" "cask"
 
 # for running cordova ios
 brew_install "Cocoapods" "cocoapods"

@@ -9,26 +9,30 @@ create_symlinks() {
 
     declare -a FILES_TO_SYMLINK=(
 
+        # I use zsh instead of bash
         "shell/mac_zsh_aliases"
+        "shell/zsh_exports"
+        "shell/zsh_functions"
+        "shell/zsh_profile"
+        "shell/zshrc"
+
         # "shell/autocomplete/$(get_os)/bash_autocomplete"
         # "shell/bash_exports"
-        "shell/zsh_exports"
         # "shell/bash_functions"
-        "shell/zsh_functions"
         # "shell/bash_logout"
         # "shell/bash_options"
         # "shell/bash_profile"
-        "shell/zsh_profile"
         # "shell/bash_prompt"
         # "shell/bashrc"
-        "shell/zshrc"
         # "shell/curlrc"
         # "shell/inputrc"
 
+        # git configs
         "git/gitattributes"
         "git/gitconfig"
         "git/gitignore"
 
+        # tmux config
         "tmux/tmux.conf"
 
         # "vim/vim"
