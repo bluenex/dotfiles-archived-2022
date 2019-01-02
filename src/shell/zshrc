@@ -85,14 +85,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# workaround to get nvm works on tmux without seeing `prefix` warning
-# https://github.com/creationix/nvm/issues/1873#issuecomment-421472084
-PATH="/usr/local/bin:$(getconf PATH)"
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # load zsh_profile
 [ -n "$PS1" ] \
     && . ~/.zsh_profile
