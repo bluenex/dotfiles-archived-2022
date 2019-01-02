@@ -18,7 +18,7 @@ add_nvm_configs() {
 
 # workaround to get nvm works on tmux without seeing `prefix` warning
 # https://github.com/creationix/nvm/issues/1873#issuecomment-421472084
-PATH="/usr/local/bin:$(getconf PATH)"
+# PATH="/usr/local/bin:$(getconf PATH)"
 
 export NVM_DIR=\"$NVM_DIRECTORY\"
 
