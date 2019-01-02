@@ -25,11 +25,11 @@ install_plugins() {
 
     # Install additional things required by some plugins.
 
-    execute \
-        ". $HOME/.zsh.local \
-            && cd $HOME/.vim/plugins/tern_for_vim \
-            && npm install" \
-        "Install plugins (extra installs for 'tern_for_vim')"
+    # execute \
+    #     ". $HOME/.zsh.local \
+    #         && cd $HOME/.vim/plugins/tern_for_vim \
+    #         && npm install" \
+    #     "Install plugins (extra installs for 'tern_for_vim')"
 
 }
 

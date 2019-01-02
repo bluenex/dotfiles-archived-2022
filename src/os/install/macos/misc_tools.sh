@@ -11,7 +11,7 @@ print_in_purple "\n   Miscellaneous Tools\n\n"
 brew_install "ShellCheck" "shellcheck"
 
 # terminal
-brew_install "iTerm2" "iterm2"
+brew_install "iTerm 2" "iterm2" "caskroom/cask" "cask"
 
 # python
 brew_install "Miniconda" "miniconda" "caskroom/cask" "cask"

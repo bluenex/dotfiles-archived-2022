@@ -90,6 +90,10 @@ main() {
     # install oh-my-zsh
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
+    # move linked .zshrc back to its place (was backed up by oh-my-zsh installer)
+    rm ~/.zshrc
+    mv ~/.zshrc.pre-oh-my-zsh ~/.zshrc
+
     # change default zsh
     # this adds .zsh.local
     change_default_bash
