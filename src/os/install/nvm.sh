@@ -49,6 +49,17 @@ install_latest_stable_node() {
         "nvm (install latest Node)"
 }
 
+use_python27_for_npm() {
+
+    # As we use miniconda Python 3, some node-gyp will get an error
+    # We will solve this by using system's Python 2.7
+
+    execute \
+        ". $LOCAL_SHELL_CONFIG_FILE \
+            && npm config set python python2.7" \
+        "npm (set Python 2.7 as default Python)"
+}
+
 install_nvm() {
 
     # Install `nvm` and add the necessary
@@ -86,6 +97,7 @@ main() {
 
     install_latest_stable_node
 
+    use_python27_for_npm
 }
 
 main
