@@ -16,7 +16,7 @@ add_nvm_configs() {
 
 # Node Version Manager
 
-# workaround to get nvm works on tmux without seeing `prefix` warning
+# workaround to get nvm works on tmux without seeing 'prefix' warning
 # https://github.com/creationix/nvm/issues/1873#issuecomment-421472084
 # PATH="/usr/local/bin:$(getconf PATH)"
 

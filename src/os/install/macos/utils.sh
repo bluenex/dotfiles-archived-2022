@@ -17,9 +17,10 @@ brew_cleanup() {
         "brew cleanup" \
         "Homebrew (cleanup)"
 
-    execute \
-        "brew cask cleanup" \
-        "Homebrew (cask cleanup)"
+    # this is deprecated, only brew cleanup is enough
+    # execute \
+    #     "brew cask cleanup" \
+    #     "Homebrew (cask cleanup)"
 
 }
 
