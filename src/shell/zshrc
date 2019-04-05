@@ -88,3 +88,6 @@ source $ZSH/oh-my-zsh.sh
 # load zsh_profile
 [ -n "$PS1" ] \
     && . ~/.zsh_profile
+
+# Source user custom completions
+for f in ~/.completion.d/zsh/*; do source "$f"; done

@@ -117,3 +117,11 @@ export PATH="/usr/local/miniconda3/bin":$PATH
 # https://github.com/dotnet/cli/issues/1567
 # export PATH=$PATH:"/usr/local/share/dotnet"
 
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
