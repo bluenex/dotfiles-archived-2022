@@ -114,7 +114,7 @@
     attributesfile = ~/.gitattributes
     autocrlf = input
     editor = vim
-    excludesfile = ~/.gitignore
+	  excludesfile = /Users/tulakann/.gitignore_global
     ignorecase = true
 
 [diff]
