@@ -34,9 +34,5 @@ brew_install "Android Studio" "android-studio" "caskroom/cask" "cask"
 # for running cordova ios
 brew_install "Cocoapods" "cocoapods"
 
-# need to
-# sdkmanager "platforms;android-27"
-# sdkmanager "build-tools;27.0.3"
-# sdkmanager "extras;android;m2repository"
-# sdkmanager "extras;google;m2repository"
-# sdkmanager "sources;android-27"
+# fuzzy search
+brew_install "fzf" "fzf"
