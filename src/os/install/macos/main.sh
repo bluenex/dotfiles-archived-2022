@@ -11,7 +11,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 ./zsh.sh
 
 ./../nvm.sh
-./../npm.sh
+# ./../npm.sh
 
 ./../vim.sh
 ./browsers.sh

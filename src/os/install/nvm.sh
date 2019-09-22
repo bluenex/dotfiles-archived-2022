@@ -3,40 +3,10 @@
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "../utils.sh"
 
-declare -r LOCAL_SHELL_CONFIG_FILE="$HOME/.zsh.local"
 declare -r NVM_DIRECTORY="$HOME/.nvm"
 declare -r NVM_GIT_REPO_URL="https://github.com/creationix/nvm.git"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-add_nvm_configs() {
-
-    declare -r CONFIGS="
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Node Version Manager
-
-# workaround to get nvm works on tmux without seeing 'prefix' warning
-# https://github.com/creationix/nvm/issues/1873#issuecomment-421472084
-# PATH="/usr/local/bin:$(getconf PATH)"
-
-export NVM_DIR=\"$NVM_DIRECTORY\"
-
-[ -f \"\$NVM_DIR/nvm.sh\" ] \\
-    && . \"\$NVM_DIR/nvm.sh\"
-
-[ -f \"\$NVM_DIR/bash_completion\" ] \\
-    && . \"\$NVM_DIR/bash_completion\"
-"
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-    execute \
-        "printf '%s' '$CONFIGS' >> $LOCAL_SHELL_CONFIG_FILE \
-            && . $LOCAL_SHELL_CONFIG_FILE" \
-        "nvm (update $LOCAL_SHELL_CONFIG_FILE)"
-
-}
 
 install_latest_stable_node() {
 
@@ -44,8 +14,7 @@ install_latest_stable_node() {
     # (this will also set it as the default).
 
     execute \
-        ". $LOCAL_SHELL_CONFIG_FILE \
-            && nvm install node" \
+        "nvm install node" \
         "nvm (install latest Node)"
 }
 
@@ -55,8 +24,7 @@ use_python27_for_npm() {
     # We will solve this by using system's Python 2.7
 
     execute \
-        ". $LOCAL_SHELL_CONFIG_FILE \
-            && npm config set python python2.7" \
+        "npm config set python python2.7" \
         "npm (set Python 2.7 as default Python)"
 }
 
@@ -68,8 +36,6 @@ install_nvm() {
     execute \
         "git clone --quiet $NVM_GIT_REPO_URL $NVM_DIRECTORY" \
         "nvm (install)" \
-    && add_nvm_configs
-
 }
 
 update_nvm() {
@@ -80,7 +46,6 @@ update_nvm() {
             && git checkout --quiet \$(git describe --abbrev=0 --tags) \
             && . $NVM_DIRECTORY/nvm.sh" \
         "nvm (upgrade)"
-
 }
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

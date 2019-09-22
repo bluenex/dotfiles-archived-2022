@@ -53,8 +53,6 @@ findBranch() {
 }
 
 # youtube-dl add-on
-## due to certification error, this alias is to bypass
-
 chk-ytdl-dir() {
 if [ ! -d ~/Music/youtube-dl ]; then
   mkdir ~/Music/youtube-dl
