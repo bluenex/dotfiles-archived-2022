@@ -90,4 +90,4 @@ source $ZSH/oh-my-zsh.sh
     && . ~/.zsh_profile
 
 # Source user custom completions
-for f in ~/.completion.d/zsh/*; do source "$f"; done
+for f in ~/.completion.d/zsh/*; do source "$f" && echo sourced "$f"; done
