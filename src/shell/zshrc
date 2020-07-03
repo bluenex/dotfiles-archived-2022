@@ -2,7 +2,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/$(whoami)/.oh-my-zsh
+if [ "$(uname -s)" = "Darwin" ]; then
+  export ZSH=/Users/$(whoami)/.oh-my-zsh
+else
+  export ZSH=/home/$(whoami)/.oh-my-zsh
+fi
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -89,5 +93,7 @@ source $ZSH/oh-my-zsh.sh
 [ -n "$PS1" ] \
     && . ~/.zsh_profile
 
-# Source user custom completions
-for f in ~/.completion.d/zsh/*; do source "$f" && echo sourced "$f"; done
+if [ "$(uname -s)" = "Darwin" ]; then
+  # Source user custom completions
+  for f in ~/.completion.d/zsh/*; do source "$f" && echo sourced "$f"; done
+fi
