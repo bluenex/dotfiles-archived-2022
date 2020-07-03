@@ -38,7 +38,7 @@ install_package() {
     declare -r PACKAGE_READABLE_NAME="$1"
 
     if ! package_is_installed "$PACKAGE"; then
-        execute "sudo apt-get install --allow-unauthenticated -qqy $PACKAGE" "$PACKAGE_READABLE_NAME"
+        execute "sudo apt install --allow-unauthenticated -qqy $PACKAGE" "$PACKAGE_READABLE_NAME"
         #                                      suppress output ─┘│
         #            assume "yes" as the answer to all prompts ──┘
     else

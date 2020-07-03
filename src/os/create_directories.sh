@@ -11,6 +11,7 @@ create_directories() {
         "$HOME/gitRepo/_temp"
         "$HOME/gitRepo/_salween"
         "$HOME/gitRepo/_hobbies"
+        "$HOME/gitRepo/_side-projects"
     )
 
     for i in "${DIRECTORIES[@]}"; do

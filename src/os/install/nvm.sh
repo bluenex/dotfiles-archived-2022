@@ -35,7 +35,7 @@ install_nvm() {
 
     execute \
         "git clone --quiet $NVM_GIT_REPO_URL $NVM_DIRECTORY" \
-        "nvm (install)" \
+        "nvm (install)"
 }
 
 update_nvm() {
