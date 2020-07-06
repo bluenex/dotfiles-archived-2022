@@ -113,7 +113,11 @@ fi
 
 # Add miniconda to path (may not need, need to test installing miniconda using brew cask first.)
 # export PATH="/Users/tulakan/miniconda3/bin:$PATH"
-export PATH="/usr/local/miniconda3/bin":$PATH
+if [ "$(uname -s)" = "Darwin" ]; then
+  export PATH="/usr/local/miniconda3/bin":$PATH
+else
+  export PATH="$HOME/miniconda3/bin":$PATH
+fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
