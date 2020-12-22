@@ -8,15 +8,19 @@ fzfp() {
 
 switch_java_home() {
 
-  if echo ${JAVA_HOME} | grep '1.8' > /dev/null;
+  if echo "$JAVA_HOME" | grep 'adoptopenjdk-8' > /dev/null;
   then
+    unset JAVA_HOME
     # if 1.8 is being exported
-    export JAVA_HOME=$(/usr/libexec/java_home)
-    echo "JAVA_HOME is changed to '$(/usr/libexec/java_home)'"
+    java11_path=$(/usr/libexec/java_home -v "11")
+    export JAVA_HOME="$java11_path"
+    echo "JAVA_HOME is changed to '$java11_path'"
   else
-    # if 10 is being exported
-    export JAVA_HOME=$(/usr/libexec/java_home -v1.8)
-    echo "JAVA_HOME is changed to '$(/usr/libexec/java_home -v1.8)'"
+    unset JAVA_HOME
+    # if 11 is being exported
+    java8_path=$(/usr/libexec/java_home -v "1.8.0")
+    export JAVA_HOME="$java8_path"
+    echo "JAVA_HOME is changed to '$java8_path'"
   fi
 
 }
