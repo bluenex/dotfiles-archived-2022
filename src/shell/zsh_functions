@@ -46,7 +46,8 @@ add_to_path_end() {
 getBranchName() {
   local bName
 
-  bName=$("pbpaste" | sed -nE 's|.*/c/(.*)">.*</a>.*|\1|p')
+  decodeSlash=$("pbpaste" | sed -nE 's/&#x2F;/\//gp')
+  bName=$(echo "$decodeSlash" | sed -nE 's/.*\/c\/(.*)">.*<\/a>.*/\1/p')
   echo "$bName" | pbcopy;
 
   echo "$bName"
