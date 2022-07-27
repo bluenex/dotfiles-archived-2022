@@ -150,3 +150,8 @@ load_nvm () {
 for cmd in "${NODE_GLOBALS[@]}"; do
   eval "${cmd}(){ unset -f ${NODE_GLOBALS}; load_nvm; nvm use || nvm use default; ${cmd} \$@ }"
 done
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# z
+. /usr/local/etc/profile.d/z.sh
